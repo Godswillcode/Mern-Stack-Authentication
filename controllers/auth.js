@@ -1,5 +1,7 @@
+const User = require('../models/User')
+
 exports.register = (req, res, next) => {
-    res.send("Register Route")
+    const {username, email, password} = req.body;
 };
 
 exports.login = (req, res, next) => {
