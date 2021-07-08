@@ -15,10 +15,16 @@ const UserSchema = new mongoose.Schema({
     ],
   },
   password: {
-      type: String,
-      require: [true, "Please provide a password"],
-      minlength: 6,
-      select: false
+    type: String,
+    require: [true, "Please provide a password"],
+    minlength: 6,
+    select: false,
   },
-  
+
+  resetPasswordToken: String,
+  resetPasswordExpire: Date,
 });
+
+const User = mongoose.model("User", UserSchema);
+
+module.exports = User;
