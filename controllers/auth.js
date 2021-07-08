@@ -57,5 +57,5 @@ exports.resetpassword = (req, res, next) => {
 
 
 const sendToken = (user, statusCode, res) => {
-  const token = 
+  const token = user.getSignToken()
 }
