@@ -11,10 +11,7 @@ exports.register = async (req, res, next) => {
       password,
     });
 
-    res.status(201).json({
-      success: true,
-      token: "44yfhj48483"
-    });
+   sendToken(user, 201, res)
   } catch (error) {
     next(error);
   }
@@ -57,5 +54,6 @@ exports.resetpassword = (req, res, next) => {
 
 
 const sendToken = (user, statusCode, res) => {
-  const token = user.getSignToken()
+  const token = user.getSignedToken()
+  res.status(statusCode).json({success: true, token})
 }
