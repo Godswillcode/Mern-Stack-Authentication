@@ -42,7 +42,19 @@ exports.login = async (req, res, next) => {
 };
 
 exports.forgotpassword = (req, res, next) => {
-  res.send("Forgot password Route");
+  const {email} = req.body;
+
+  try {
+    const user = await User.findOne({email})
+
+    if(!user) {
+      return next(new ErrorResponse("Email could not be sent", 404));
+    }
+
+     
+  } catch (error) {
+    
+  }
 };
 
 exports.resetpassword = (req, res, next) => {
