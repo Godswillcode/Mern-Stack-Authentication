@@ -51,7 +51,9 @@ exports.forgotpassword = (req, res, next) => {
       return next(new ErrorResponse("Email could not be sent", 404));
     }
 
-     
+     const resetToken = user.getResetPasswordToken()
+
+     await user.save();
   } catch (error) {
     
   }
