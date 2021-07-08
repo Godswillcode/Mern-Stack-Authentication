@@ -7,4 +7,8 @@ router.route("/register").post(register)
 
 router.route("/login").post(login)
 
-router.route("/register").post(register)
+router.route("/forgotpassword").post(forgotpassword)
+
+router.route("/resetpassword/:resetToken").post(resetpassword)
+
+module.exports = router;
