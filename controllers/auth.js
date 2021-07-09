@@ -18,7 +18,7 @@ exports.register = async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body;  
 
   if (!email || !password) {
     return next(new ErrorResponse("Please provide email and password", 400));
@@ -41,7 +41,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
-exports.forgotpassword = (req, res, next) => {
+exports.forgotpassword = async (req, res, next) => {
   const {email} = req.body;
 
   try {
@@ -59,7 +59,14 @@ exports.forgotpassword = (req, res, next) => {
 
      const message = `<h1>You have requested for a password reset</h1>
       <p>Please go to ths link to reset your password</p>
+      <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
      `
+
+     try {
+       
+     } catch (error) {
+       
+     }
   } catch (error) {
     
   }
