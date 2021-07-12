@@ -78,10 +78,10 @@ exports.forgotpassword = async (req, res, next) => {
 
         await user.save()
 
-        return next(new ErrorResponse("Email could not be send", 500))
+        return next(new ErrorResponse("Email could not be send", 500  ))
      }
   } catch (error) {
-    
+      next(error)
   }
 };
 
