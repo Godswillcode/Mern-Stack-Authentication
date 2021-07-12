@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const ErrorResponse = require("../utils/errorResponse");
+const sendEmail = require('../utils/sendEmail')
 
 exports.register = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -63,6 +64,7 @@ exports.forgotpassword = async (req, res, next) => {
      `
 
      try {
+      //  await 
        
      } catch (error) {
        
